@@ -1,0 +1,495 @@
+/* ==========================================================
+   TipiFiX - index.css
+   Mobile first. Breakpoints: 400px, 600px, 1200px
+   ========================================================== */
+
+:root{
+    --blue: rgb(0, 140, 255);
+    --blue-mid: rgb(39, 89, 228);
+    --blue-deep: rgb(33, 33, 212);
+    --orange: rgb(255, 137, 2);
+    --navy: rgba(0, 0, 68, .76);
+    --navy-solid: rgb(0, 0, 68);
+    --panel: rgba(255, 255, 255, .93);
+    --radius: .75em;
+    --shadow: 0 .25em 1em rgba(0, 0, 68, .18);
+    --shadow-lift: 0 .5em 1.25em rgba(0, 0, 68, .28);
+}
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+body{
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    line-height: 1.5em;
+    color: #1b1b2f;
+    background-color: #eef3ff;
+    background-image: url(Logos/logo_black.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* ---------- headings ---------- */
+h1, h2, h3{
+    line-height: 1.2em;
+}
+h1, h2{
+    font-family: Georgia, serif;
+}
+h2{
+    color: var(--navy);
+    font-size: 1.5em;
+    margin: 0 0 .75em;
+}
+h2::after{
+    content: "";
+    display: block;
+    width: 3em;
+    height: .2em;
+    margin-top: .3em;
+    border-radius: 1em;
+    background-color: var(--orange);
+}
+h3{
+    color: var(--navy);
+    margin: 0;
+}
+
+/* ---------- links ---------- */
+a{
+    position: relative;
+    transition:
+        color .2s,
+        background-color .2s,
+        border-color .2s,
+        transform .2s,
+        box-shadow .2s;
+}
+a:link{
+    text-decoration: none;
+    color: var(--orange);
+}
+a:visited{
+    color: rgb(206, 47, 255);
+}
+a:active{
+    transform: translateY(2px);
+}
+a:focus-visible{
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+}
+
+/* ---------- header ---------- */
+.site-header{
+    text-align: center;
+    color: #fff;
+    background-color: var(--blue-mid);
+    background-image: url(icons/banner1.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: .5em .5em 1.5em;
+    border-radius: 0 0 1.5em 1.5em;
+    box-shadow: var(--shadow);
+}
+.logo{
+    display: block;
+    width: 100%;
+    max-width: 10em;
+    margin: .5em auto 0;
+}
+
+/* ---------- nav ---------- */
+.site-header nav{
+    padding: .25em;
+}
+.site-header nav ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+}
+.site-header nav ul li{
+    flex: 1 1 50%;
+    letter-spacing: .1em;
+    font-size: .8em;
+    text-transform: uppercase;
+}
+.site-header nav ul li a{
+    display: block;
+    border: 1px solid;
+    border-radius: .5em;
+    padding: .5em;
+    margin: .25em;
+}
+.site-header nav ul li a:link,
+.site-header nav ul li a:visited{
+    color: white;
+}
+.site-header nav ul li a:focus,
+.site-header nav ul li a:hover{
+    transform: scale(.9);
+}
+.site-header nav ul li a:active{
+    background-color: white;
+    top: 3px;
+}
+.site-header nav ul li a[aria-current="page"]{
+    background-color: rgba(255, 255, 255, .25);
+}
+
+/* ---------- hero intro ---------- */
+.intro h1{
+    font-size: 2.5em;
+    letter-spacing: .05em;
+    margin: .25em 0 0;
+    color: #fff;
+    text-shadow: 0 .05em .3em rgba(0, 0, 0, .4);
+}
+.tagline{
+    display: inline-block;
+    margin: .25em 0 .5em;
+    padding-top: .5em;
+    border-top: 1px solid rgba(255, 255, 255, .7);
+    font-size: .8em;
+    font-weight: bold;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+.motto{
+    display: none;
+}
+.hero-actions{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: .5em;
+    margin: 1em 0 0;
+}
+
+/* ---------- buttons ---------- */
+.button:link, .button:visited{
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .8em;
+    font-weight: bold;
+    color: var(--navy-solid);
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 2em;
+    padding: .6em 1.4em;
+    box-shadow: 0 .2em .6em rgba(0, 0, 0, .25);
+}
+.button-outline:link, .button-outline:visited{
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+.button:hover, .button:focus-visible{
+    color: var(--navy-solid);
+    background-color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+.button-outline:hover, .button-outline:focus-visible{
+    color: var(--navy-solid);
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/* ---------- main + panels ---------- */
+main{
+    display: grid;
+    gap: 1.25em;
+    margin: .5em;
+    padding: .5em;
+}
+.panel{
+    background-color: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1em;
+}
+.panel > :last-child{
+    margin-bottom: 0;
+}
+.about{
+    border-left: .4em solid var(--orange);
+}
+.about p{
+    margin: 0;
+}
+
+/* ---------- services ---------- */
+.service-list{
+    display: grid;
+    gap: 1em;
+}
+.service{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "title"
+        "media"
+        "text";
+    gap: .5em 1em;
+    background-color: rgba(0, 140, 255, .07);
+    border: 2px solid var(--blue);
+    border-radius: var(--radius);
+    padding: .75em;
+    transition: transform .2s, box-shadow .2s;
+}
+.service:hover{
+    transform: translateY(-.2em);
+    box-shadow: var(--shadow-lift);
+}
+.service h3{
+    grid-area: title;
+    font-size: 1.2em;
+}
+.service picture{
+    grid-area: media;
+}
+.service img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+.service p{
+    grid-area: text;
+    margin: 0;
+}
+.service-more{
+    display: none;
+}
+
+/* ---------- how it works ---------- */
+.steps{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .75em;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.step{
+    color: #fff;
+    background-image: linear-gradient(135deg, var(--blue-deep), var(--blue-mid));
+    border-radius: var(--radius);
+    padding: .75em;
+    transition: transform .2s, box-shadow .2s;
+}
+.step:hover{
+    transform: translateY(-.2em);
+    box-shadow: var(--shadow-lift);
+}
+.step h3{
+    color: #fff;
+    margin: .4em 0 .25em;
+}
+.step p{
+    margin: 0;
+}
+.step-label{
+    display: inline-block;
+    font-size: .75em;
+    font-weight: bold;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--navy-solid);
+    background-color: var(--orange);
+    border-radius: 2em;
+    padding: .15em .9em;
+}
+
+/* ---------- trust ---------- */
+.trust-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .75em;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.trust-list li{
+    position: relative;
+    background-color: rgba(0, 140, 255, .07);
+    border: 2px solid var(--blue);
+    border-radius: var(--radius);
+    padding: .75em .75em .75em 3em;
+    transition: transform .2s, box-shadow .2s;
+}
+.trust-list li:hover{
+    transform: translateY(-.2em);
+    box-shadow: var(--shadow-lift);
+}
+.trust-list li::before{
+    content: "\2713";
+    position: absolute;
+    left: .6em;
+    top: .75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+    font-weight: bold;
+    color: var(--navy-solid);
+    background-color: var(--orange);
+}
+.trust-list strong{
+    display: block;
+    color: var(--navy);
+}
+
+/* ---------- footer ---------- */
+.site-footer{
+    margin-top: 1.5em;
+    text-align: center;
+    color: #fff;
+    background-color: var(--blue-deep);
+    background-image: url(icons/banner1.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 1em .5em;
+    border-radius: 1.5em 1.5em 0 0;
+}
+.site-footer p{
+    margin: .5em 0;
+}
+.social-links{
+    display: flex;
+    justify-content: center;
+    gap: .75em;
+    margin: .75em 0;
+    padding: 0;
+    list-style-type: none;
+}
+.social-links a{
+    display: block;
+    line-height: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: .5em;
+}
+.social-links a:hover, .social-links a:focus-visible{
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lift);
+}
+.phone a:link, .phone a:visited{
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+    html{
+        scroll-behavior: auto;
+    }
+    *{
+        transition: none !important;
+    }
+}
+
+/* ==========================================================
+   400px and up
+   ========================================================== */
+@media screen and (min-width:400px){
+    .site-header nav ul li{
+        flex: none;
+    }
+    .site-header nav ul{
+        justify-content: center;
+    }
+}
+
+/* ==========================================================
+   600px and up
+   ========================================================== */
+@media screen and (min-width:600px){
+    body{
+        font-size: 1.2em;
+    }
+    .logo{
+        max-width: 12em;
+    }
+    .intro h1{
+        font-size: 3em;
+    }
+    .motto{
+        display: block;
+        max-width: 32em;
+        margin: .5em auto;
+        font-family: Georgia, serif;
+        font-size: 1.2em;
+    }
+    main{
+        gap: 1.5em;
+        margin: .75em;
+        padding: .75em;
+        line-height: 1.8em;
+    }
+    .panel{
+        padding: 1.25em 1.5em;
+    }
+    .service{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "media title"
+            "media text";
+        align-items: center;
+    }
+    .service:nth-child(even){
+        grid-template-areas:
+            "title media"
+            "text media";
+    }
+    .service h3{
+        align-self: end;
+        font-size: 1.3em;
+    }
+    .service p{
+        align-self: start;
+    }
+    .service-more{
+        display: inline;
+    }
+    .steps, .trust-list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================================
+   1200px and up
+   ========================================================== */
+@media screen and (min-width:1200px){
+    #container{
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .site-header{
+        border-radius: 0 0 2em 2em;
+    }
+    .site-footer{
+        border-radius: 2em 2em 0 0;
+    }
+}
